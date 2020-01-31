@@ -59,7 +59,7 @@ public class InterestCalculator {
             for (counter = 1; counter < 5; counter++) {
                 System.out.println("Quarter " + counter + ": ");
                 System.out.println("Began with $" + initialInvestment);
-                System.out.println("Earned      " + earned());
+                System.out.println("Earned     $ " + earned());
                 System.out.println("Ended with $" + principal() + "\n");
                 initialInvestment = principal();
             }
