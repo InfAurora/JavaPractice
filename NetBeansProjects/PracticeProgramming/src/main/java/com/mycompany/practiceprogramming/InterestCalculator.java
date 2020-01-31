@@ -34,12 +34,6 @@ public class InterestCalculator {
         System.out.println("\nCalculating...");
 
         quarters();
-
-        /*for (int i = 0; i < yearsIn * 4; i++) {
-            quarters();
-            initialInvestment = principal();
-            
-        } */
     }
 
     public static double earned() {
@@ -55,7 +49,6 @@ public class InterestCalculator {
     public static void quarters() {
         int yearNum = 1;
         int counter = 0;
-        //for (int i = 0; i < yearsIn * 4; i++) {
 
         while (yearNum <= yearsIn) {
             if (counter == 0) {
@@ -66,29 +59,13 @@ public class InterestCalculator {
                 System.out.println("Quarter " + counter + ": ");
                 System.out.println("Began with $" + initialInvestment);
                 System.out.println("Earned      " + earned());
-                System.out.println("Ended with $" + principal());
+                System.out.println("Ended with $" + principal() + "\n");
                 initialInvestment = principal();
             }
             counter = 0;
             yearNum++;
             System.out.println("\n");
-            /*System.out.println("Quarter 1:");
-                System.out.println("Began with $" + initialInvestment);
-                System.out.println("Earned      " + earned());
-                System.out.println("Ended with $" + principal());
-                initialInvestment = principal();*/
-            //}
-            /*if (i == 0) {
 
-                System.out.println("Year " + yearNum);
-            }
-            System.out.println("Quarter 1:");
-            System.out.println("Began with $" + initialInvestment);
-            System.out.println("Earned      " + earned());
-            System.out.println("Ended with $" + principal());
-            initialInvestment = principal();
-        }*/
         }
-        // hi test
     }
 }
