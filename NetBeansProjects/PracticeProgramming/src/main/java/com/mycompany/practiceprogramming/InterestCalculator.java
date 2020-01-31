@@ -54,6 +54,7 @@ public class InterestCalculator {
             if (counter == 0) {
 
                 System.out.println("Year " + yearNum);
+                System.out.println("-------");
             }
             for (counter = 1; counter < 5; counter++) {
                 System.out.println("Quarter " + counter + ": ");
