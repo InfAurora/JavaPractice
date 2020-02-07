@@ -14,7 +14,10 @@ import java.util.List;
  */
 public class ClassRosterView {
 
-    private UserIO io = new UserIOConsoleImpl();
+    public ClassRosterView(UserIO io) {
+        this.io = io;
+    }
+    private UserIO io;
 
     public int printMenuAndGetSelection() {
         io.print("Main Menu");
@@ -81,5 +84,31 @@ public class ClassRosterView {
             io.print("No such student.");
         }
         io.readString("Please hit enter to continue.");
+    }
+
+    public void displayRemoveStudentBanner() {
+        io.print("=== Remove Student ===");
+    }
+
+    public void displayRemoveResult(Student studentRecord) {
+        if (studentRecord != null) {
+            io.print("Student successfully removed.");
+        } else {
+            io.print("No such student.");
+        }
+        io.readString("Please hit enter to continue.");
+    }
+
+    public void displayExitBanner() {
+        io.print("Good Bye!!!");
+    }
+
+    public void displayUnknownCommandBanner() {
+        io.print("Unknown Command!!!");
+    }
+
+    public void displayErrorMessage(String errorMsg) {
+        io.print("=== ERROR ===");
+        io.print(errorMsg);
     }
 }
