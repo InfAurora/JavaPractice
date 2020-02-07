@@ -88,8 +88,8 @@ public class ClassRosterController {
     private void removeStudent() throws ClassRosterDaoException {
         view.displayRemoveStudentBanner();
         String studentId = view.getStudentIdChoice();
-        dao.removeStudent(studentId);
-        view.displayRemoveResult(//idk what to put);
+        Student removedStudent = dao.removeStudent(studentId);
+        view.displayRemoveResult(removedStudent);
     }
 
     private void unknownCommand() {
