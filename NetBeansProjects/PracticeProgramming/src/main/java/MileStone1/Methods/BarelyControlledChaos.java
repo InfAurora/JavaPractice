@@ -20,24 +20,24 @@ public class BarelyControlledChaos {
         String color = colorName();
         String animal = animalName();
         String colorAgain = colorName();
-       /* int weight = weight();
+       //int weight = weight();
         //range 5 - 200
-        int distance = distance();
+        //int distance = distance();
         // 10 - 20
-        int number = number();
+        //int number = number();
         // 10,000 - 20,000
-        int time = time();
+        //int time = time();
         // 2 - 6*/
 
         System.out.println("Once, when I was very small...");
 
-        System.out.println("I was chased by a " + color + ","
+       /* System.out.println("I was chased by a " + color + ","
                 + weight + "lb " + " miniature " + animal
                 + " for over " + distance + " miles!!!");
 
         System.out.println("I had to hide in a field over "
                 + number + " " + colorAgain + " poppies for nearly "
-                + time + " hours until it left me alone!");
+                + time + " hours until it left me alone!");*/
 
         System.out.println("\nIt was QUITE the experience, "
                 + "let me tell you!");

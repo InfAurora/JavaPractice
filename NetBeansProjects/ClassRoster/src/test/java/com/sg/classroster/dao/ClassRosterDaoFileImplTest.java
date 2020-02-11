@@ -8,8 +8,7 @@ package com.sg.classroster.dao;
 import com.sg.classroster.dto.Student;
 import java.io.FileWriter;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -47,14 +46,10 @@ public class ClassRosterDaoFileImplTest {
         Student retrievedStudent = testDao.getStudent(studentId);
 
         // Check the data is equal
-        assertEquals("Checking student id.",
-                student.getStudentId(), retrievedStudent.getStudentId());
-        assertEquals("Checking student first name.",
-                student.getFirstName(), retrievedStudent.getFirstName());
-        assertEquals("Checking student last name.",
-                student.getLastName(), retrievedStudent.getLastName());
-        assertEquals("Checking student cohort.",
-                student.getCohort(), retrievedStudent.getCohort());
+        assertEquals(student.getStudentId(), retrievedStudent.getStudentId());
+        assertEquals(student.getFirstName(), retrievedStudent.getFirstName());
+        assertEquals(student.getLastName(), retrievedStudent.getLastName());
+        assertEquals(student.getCohort(), retrievedStudent.getCohort());
     }
 
     @Test
@@ -79,15 +74,12 @@ public class ClassRosterDaoFileImplTest {
         List<Student> allStudents = testDao.getAllStudents();
 
         // First check the general contents of the list
-        assertNotNull("The list of students must not null", allStudents);
-        assertEquals("List of students should have 2 students.",
-                2, allStudents.size());
+        assertNotNull(allStudents);
+        assertEquals(2, allStudents.size());
 
         // Then the specifics
-        assertTrue("The list of students should include Ada.",
-                testDao.getAllStudents().contains(firstStudent));
-        assertTrue("The list of students should include Charles.",
-                testDao.getAllStudents().contains(secondStudent));
+        assertTrue(testDao.getAllStudents().contains(firstStudent));
+        assertTrue(testDao.getAllStudents().contains(secondStudent));
 
     }
 
@@ -112,41 +104,36 @@ public class ClassRosterDaoFileImplTest {
         Student removedStudent = testDao.removeStudent(firstStudent.getStudentId());
 
         // Check that the correct object was removed.
-        assertEquals("The removed student should be Ada.", removedStudent, firstStudent);
+        assertEquals(removedStudent, firstStudent);
 
         // Get all the students
         List<Student> allStudents = testDao.getAllStudents();
 
         // First check the general contents of the list
-        assertNotNull("All students list should be not null.", allStudents);
-        assertEquals("All students should only have 1 student.",
-                1, allStudents.size());
+        assertNotNull(allStudents);
+        assertEquals(1, allStudents.size());
 
         // Then the specifics
-        assertFalse("All students should NOT include Ada.",
-                allStudents.contains(firstStudent));
-        assertTrue("All students should NOT include Charles.",
-                allStudents.contains(secondStudent));
+        assertFalse(allStudents.contains(firstStudent));
+        assertTrue(allStudents.contains(secondStudent));
 
         // Remove the second student
         removedStudent = testDao.removeStudent(secondStudent.getStudentId());
         // Check that the correct object was removed.
-        assertEquals("The removed student should be Charles.",
-                removedStudent, secondStudent);
+        assertEquals(removedStudent, secondStudent);
 
         // retrieve all of the students again, and check the list.
         allStudents = testDao.getAllStudents();
 
         // Check the contents of the list - it should be empty
-        assertTrue("The retrieved list of students should be empty.",
-                allStudents.isEmpty());
+        assertTrue(allStudents.isEmpty());
 
         // Try to 'get' both students by their old id - they should be null!
         Student retrievedStudent = testDao.getStudent(firstStudent.getStudentId());
-        assertNull("Ada was removed, should be null.", retrievedStudent);
+        assertNull(retrievedStudent);
 
         retrievedStudent = testDao.getStudent(secondStudent.getStudentId());
-        assertNull("Charles was removed, should be null.", retrievedStudent);
+        assertNull(retrievedStudent);
 
     }
 
