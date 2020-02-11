@@ -24,10 +24,18 @@ import java.util.Scanner;
  */
 public class ClassRosterDaoFileImpl implements ClassRosterDao {
 
-    public static final String ROSTER_FILE = "roster.txt";
+    private final String ROSTER_FILE;
     public static final String DELIMITER = "::";
 
     private Map<String, Student> students = new HashMap<>();
+
+    public ClassRosterDaoFileImpl() {
+        ROSTER_FILE = "roster.txt";
+    }
+
+    public ClassRosterDaoFileImpl(String rosterTextFile) {
+        ROSTER_FILE = rosterTextFile;
+    }
 
     @Override
     public Student addStudent(String studentId, Student student)
@@ -160,7 +168,8 @@ public class ClassRosterDaoFileImpl implements ClassRosterDao {
      * Writes all students in the roster out to a ROSTER_FILE. See loadRoster
      * for file format.
      *
-     * @throws ClassRosterPersistenceException if an error occurs writing to the file
+     * @throws ClassRosterPersistenceException if an error occurs writing to the
+     * file
      */
     private void writeRoster() throws ClassRosterPersistenceException {
         // NOTE FOR APPRENTICES: We are not handling the IOException - but

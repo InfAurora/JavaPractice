@@ -61,4 +61,5 @@ public interface ClassRosterDao {
      */
     Student removeStudent(String studentId)
      throws ClassRosterPersistenceException;
+    
 }
